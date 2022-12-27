@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <div class="flex flex-col md:flex-row justify-center py-28 text-center space-y-5">
+        <!-- Left Side -->
+        <div class="flex-col p-10 w-fit md:w-2/5 items-center justify-center space-y-5">
+            <div class="text-5xl md:text-8xl font-extrabold text-left text-[#e6f4f1]">
+                Rental History in the Cloud
+            </div>
+            <hr>
+            <div class="text-2xl md:text-4xl text-left w-fit md:w-5/6 text-[#fcfcd4]">
+                    Store your rental history in the cloud to make future rental applications easier with all of your information in one place.
+            </div>
+        </div>
+        <!-- Right Side -->
+        <div class="w-fit md:w-6/12 p-10" >
+            <img src="/static/littlehouses.jpg" alt="Little Houses">
+        </div>
+    </div>
+
+{% endblock %}

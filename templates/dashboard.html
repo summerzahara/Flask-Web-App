@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+    <div class="flex-col justify-center py-32 text-center space-y-5">
+        <div class="text-2xl text-[#e6f4f1] font-bold">
+            Hello, {{user}}!
+        </div><br>
+        <form action="/logout" method="post" class="space-y-3">
+            <input type="submit" value="Logout" class="bg-[#e6f4f1] text-[#005aa3] font-bold rounded shadow px-6 py-2 cursor-pointer">
+        </form>
+        <div class="space-y-3">
+            <a href="/addaddress" class="bg-[#e6f4f1] text-[#005aa3] font-bold rounded shadow px-6 py-2 cursor-pointer">Add Address</a>
+        </div>
+    </div>
+    <h1 class="text-white text-center text-2xl font-extrabold bg-blue-900 p-3">Saved Addresses</h1>
+    <hr>
+    <div class="flex flex-col md:flex-row py-28 items-center space-y-3 px-10 bg-blue-900">
+        {% for result in results%}
+        <div class="px-10 border py-3 md:border-none">
+            <div class="text-white text-lg">
+                <div>{{result.street_one}} {{result.street_two}}</div>
+                <div>{{result.city}}, {{result.state}} {{result.zip}}</div>
+            </div>
+            <br>
+            <div class="text-white text-lg">
+                <div><span class="font-bold">Landlord Name:</span> {{result.landlord_name}}</div>
+                <div><span class="font-bold">Landlord Email:</span> {{result.landlord_email}}</div>
+                <div><span class="font-bold">Landlord Phone:</span> {{result.landlord_phone}}</div>  
+            </div>
+            <br>
+            <div class="text-white text-lg">
+                <div><span class="font-bold">Start Date:</span> {{result.start_date}}</div>
+                <div><span class="font-bold">End Date:</span> {{result.end_date}}</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

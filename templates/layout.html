@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="static/css/dist/output.css">
+    </head>
+    <body class="bg-[#00ccff]">
+        <!-- Nav bar -->
+        <nav class="bg-grey">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="flex justify-between">
+                    <div class="flex space-x-4">
+                        <!-- Logo -->
+                        <div>
+                            <a href="/" class="flex items-center py-4 px-2 text-[#005aa3] text-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-1 text-[#e6f4f1] font-bold">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+                                </svg>
+                                <span class="font-extrabold hover:text-gray-500 text-xl">CloudRentalHistory</span>
+                            </a>
+                        </div>
+                        <!-- Primary Nav -->
+                        <div class="hidden md:flex items-center space-x-1">
+                            <a href="/about" class="py-4 px-3 text-[#005aa3] hover:text-gray-500 hover:underline underline-offset-7 text-xl font-bold">About</a>
+                            <a href="/dashboard" class="py-4 px-3 text-[#005aa3] hover:text-gray-500 hover:underline underline-offset-7 text-xl font-bold">Dashboard</a>
+                        </div>
+                    </div>
+                    <!-- Secondary Nav -->
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="/login" class="py-4 px-3 text-[#005aa3] hover:text-gray-500 hover:underline underline-offset-7 text-xl font-bold">Login</a>
+                        <a href="/register" class="py-2 px-3 text-[#005aa3] bg-[#fcfcd4] hover:opacity-80 hover:underline underline-offset-7 rounded shadow transistion duration-300 text-xl font-extrabold">Sign Up</a>
+                    </div>
+                    <!-- Mobile button -->
+                    <div class="md:hidden flex items-center">
+                        <button class="mobile-menu-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                            </svg>     
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="mobile-menu px-4 hidden md:hidden">
+                <a href="/about" class="block py-2 px-4 text-sm text-[#005aa3] hover:text-gray-500 hover:underline underline-offset-7">About</a>
+                <a href="/dashboard" class="block py-2 px-4 text-sm text-[#005aa3] hover:text-gray-500 hover:underline underline-offset-7">Dashboard</a>
+                <a href="/login" class="block py-2 px-4 text-sm text-[#005aa3] hover:text-gray-500 hover:underline underline-offset-7">Login</a>
+                <a href="/register" class="block py-2 px-4 text-sm text-[#005aa3] hover:text-gray-500 hover:underline underline-offset-7">Sign Up</a>
+            </div>
+
+        </nav>
+
+        <!-- Flash Mesages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category == "error" %}
+                    <!-- Warning -->
+                    <!-- <div class="alert bg-red-100 py-5 px-6 mb-3 text-base text-red-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="exclamation-triangle" class="w-4 h-4 mr-2 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                        <path fill="currentColor" d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"></path>
+                        </svg>
+                        {{message}}
+                        <button type="button" class="btn-close box-content w-4 h-4 p-1 ml-auto text-red-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-red-900 hover:opacity-75 hover:no-underline close" data-bs-dismiss="alert" aria-label="Close">
+                        </button>
+                    </div> -->
+
+                    <div class="alert bg-red-100 rounded-lg py-5 px-6 mb-3 text-base text-red-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
+                        {{message}}
+                        <button type="button" class="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-red-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close">X</button>
+                    </div>
+                    {% else %}
+                    <!-- Success -->
+                    <div class="alert bg-green-100 rounded-lg py-5 px-6 mb-3 text-base text-green-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
+                        {{message}}
+                        <button type="button" class="btn-close box-content w-4 h-4 p-1 ml-auto text-green-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-green-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close">X</button>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+
+        <!-- Content -->
+        <main>
+            {% block main %}
+            {% endblock %}
+        </main>
+
+        <!-- Footer -->
+        <footer class="flex justify-center bg-[#e6f4f1] text-[#005aa3] text-sm fixed inset-x-0 bottom-0 p-2">
+            <div>
+                CS50 Final Project, Summer Hamilton 2022 &copy;
+            </div>
+        </footer>
+        
+        <!-- Javascript -->
+        <script src="static/js/mobile.js" async defer></script>
+    </body>
+</html>

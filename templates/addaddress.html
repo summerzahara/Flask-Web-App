@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Address
+{% endblock %}
+
+{% block main %}
+<div class="py-20 text-center space-y-3">
+    <div class="text-2xl text-[#e6f4f1] font-bold">Add Address</div>
+    <form action="/addaddress" method="post">
+        <!-- Container -->
+        <div class="flex flex-col md:flex-row justify-center">
+            <!-- Left Side -->
+            <div class="p-10 space-y-4">
+                <!-- Address -->
+                <input type="text" name="street1" placeholder="Street 1" class="py-2 px-2 rounded required:border-red-500 focus:outline-none"><br>
+                <input type="text" name="street2" placeholder="Street 2" class="py-2 px-2 rounded required:border-red-500 focus:outline-none"><br>
+                <input type="text" name="city" placeholder="City" class="py-2 px-2 rounded required:border-red-500 focus:outline-none"><br>
+                <input type="text" name="state" placeholder="State" class="py-2 px-2 rounded required:border-red-500 focus:outline-none"><br>
+                <input type="text" name="zip" placeholder="Zip Code" class="py-2 px-2 rounded required:border-red-500 focus:outline-none"><br>
+                
+            </div>
+            <!-- Middle side -->
+            <div class="p-10 space-y-4">
+                <!-- Landlord Info -->
+                <input type="text" name="landlord-name" placeholder="Landlord Name" class="py-2 px-2 rounded required:border-red-500 focus:outline-none"><br>
+                <input type="text" name="landlord-email" placeholder="Landloard Email" class="py-2 px-2 rounded required:border-red-500 focus:outline-none"><br>
+                <input type="text" name="landlord-phone" placeholder="Landlord Phone Number" class="py-2 px-2 rounded required:border-red-500 focus:outline-none"><br>
+            </div>
+            <!-- Left Side -->
+            <div class="p-10 space-y-4">
+                <!-- Dates -->
+                <label for="startdate" class="text-md text-white py-2 font-bold">Start Date:</label><br>
+                <input type="date" name="startdate" class="py-2 px-2 rounded required:border-red-500 focus:outline-none"><br>
+                <label for="enddate" class="text-md text-white py-2 font-bold">End Date: </label><br>
+                <input type="date" name="enddate" class="py-2 px-2 rounded required:border-red-500 focus:outline-none"><br><br> 
+            </div> 
+        </div>
+        <!-- Submit -->
+        <div class="submit">
+            <input type="submit" value="Submit" class="bg-[#e6f4f1] text-[#005aa3] font-bold rounded shadow hover:cursor-pointer hover:opacity-80 px-6 py-2 transistion duration-300">
+        </div>
+    </form>
+</div>
+{% endblock %}

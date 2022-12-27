@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <div class="py-20 text-center space-y-3">
+        <div class="text-2xl text-[#e6f4f1] font-bold">Sign Up</div>
+        <form action="/register" method="post" class="space-y-3">
+            <input type="text" name="username" placeholder="Username" class="py-2 px-2 rounded required:border-red-500 focus:outline-none"><br>
+            <input type="text" name="name" placeholder="Full Name" class="py-2 px-2 rounded required:border-red-500 focus:outline-none"><br>
+            <input type="email" name="email" placeholder="Email" class="py-2 px-2 rounded required:border-red-500 focus:outline-none"><br>
+            <input type="password" name="password" placeholder="Password" class="py-2 px-2 rounded focus:outline-none"><br>
+            <input type="password" name="password-confirm" placeholder="Confirm Password" class="py-2 px-2 rounded focus:outline-none"><br>
+            <input type="submit" value="Submit" class="bg-[#e6f4f1] text-[#005aa3] font-bold rounded shadow hover:cursor-pointer hover:opacity-80 px-6 py-2 transistion duration-300">
+        </form>
+    </div>
+{% endblock %}
